@@ -6,6 +6,7 @@ namespace Gyertyak
     internal class Program
     {
         public static List<Elado> eladok = new List<Elado>();
+        public static List<Szallito> szallitok = new List<Szallito>();
         public static BinarisKeresofa<IGyertya, int> termekek = new BinarisKeresofa<IGyertya, int>();
         static void Main(string[] args)
         {
@@ -18,56 +19,80 @@ namespace Gyertyak
             Console.WriteLine("2 - Szállító hozzáadása");
             Console.WriteLine("3 - Termék hozzáadása");
             Console.WriteLine("4 - Ország hozzáadása szállítóhoz");
-            Console.WriteLine("6 - Terméket árúsítók keresése");
-            Console.WriteLine("7 - Teljes terméklista");
-            Console.WriteLine("8 - Termék keresése");
+            Console.WriteLine("5 - Terméket árúsítók keresése");
+            Console.WriteLine("6 - Teljes terméklista");
+            Console.WriteLine("7 - Termék keresése");
             ConsoleKeyInfo key = Console.ReadKey();
-            switch (key.Key)
+
+
+            if (key.Key == ConsoleKey.D1 || key.Key == ConsoleKey.NumPad1)
             {
-                case ConsoleKey.D1:
-                    Console.Clear();
-                    m1();
-                    break;
-                case ConsoleKey.D2:
-                    Console.Clear();
-                    m2();
-                    break;
-                case ConsoleKey.D3:
-                    Console.Clear();
-                    m3();
-                    break;
-                case ConsoleKey.D4:
-                    Console.Clear();
-                    m4();
-                    break;
-                case ConsoleKey.D5:
-                    Console.Clear();
-                    m5();
-                    break;
-                case ConsoleKey.D6:
-                    Console.Clear();
-                    m6();
-                    break;
-                case ConsoleKey.D7:
-                    Console.Clear();
-                    m7();
-                    break;
-                case ConsoleKey.D8:
-                    Console.Clear();
-                    m8();
-                    break;
-                default:
-                    Console.Clear();
-                    Menu();
-                    break;
+                Console.Clear();
+                m1();
+                Console.Clear();
+                Menu();
             }
+            else if (key.Key == ConsoleKey.D2 || key.Key == ConsoleKey.NumPad2)
+            {
+                Console.Clear();
+                m2();
+                Console.Clear();
+                Menu();
+            }
+            else if (key.Key == ConsoleKey.D3 || key.Key == ConsoleKey.NumPad3)
+            {
+                Console.Clear();
+                m3();
+                Console.Clear();
+                Menu();
+            }
+            else if (key.Key == ConsoleKey.D4 || key.Key == ConsoleKey.NumPad4)
+            {
+                Console.Clear();
+                m4();
+                Console.Clear();
+                Menu();
+            }
+            else if (key.Key == ConsoleKey.D5 || key.Key == ConsoleKey.NumPad5)
+            {
+                Console.Clear();
+                m5();
+                Console.Clear();
+                Menu();
+            }
+            else if (key.Key == ConsoleKey.D6 || key.Key == ConsoleKey.NumPad6)
+            {
+                Console.Clear();
+                m6();
+                Console.Clear();
+                Menu();
+            }
+            else if (key.Key == ConsoleKey.D7 || key.Key == ConsoleKey.NumPad7)
+            {
+                Console.Clear();
+                m7();
+                Console.Clear();
+                Menu();
+            }
+            else if (key.Key == ConsoleKey.Escape)
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+                Console.Clear();
+                Menu();
+            }
+
+
         }
 
 
 
         static void m1()
         {
-
+            Console.Clear();
+            eladok.Add(new Elado(eladok, ref termekek, szallitok));
         }
 
         static void m2()
@@ -77,36 +102,7 @@ namespace Gyertyak
 
         static void m3()
         {
-            Console.Write("Eladó: ");
-            string eladoNeve = Console.ReadLine();
-            Elado elado = eladok.Find(x => x.Name == eladoNeve);
-            while (elado == null)
-            {
-                Console.Clear();
-                Console.Write("Eladó: ");
-                eladoNeve = Console.ReadLine();
-                elado = eladok.Find(x => x.Name == eladoNeve);
-            }
-            Console.Write("Termék típusa: ");
-            string ttype = Console.ReadLine();
-            switch (ttype)
-            {
-                case "poharas gyertya":
-                    elado.ujPoharas();
-                    break;
-                case "illatos mécses":
-                    elado.ujMecses();
-                    break;
-                case "lampiongyertya":
-                    elado.ujLampion();
-                    break;
-                default:
-                    Console.WriteLine("Nincs ilyen típus!");
-                    System.Threading.Thread.Sleep(3000);
-                    Console.Clear();
-                    m3();
-                    break;
-            }
+            
         }
 
         static void m4()
@@ -125,11 +121,6 @@ namespace Gyertyak
         }
 
         static void m7()
-        {
-
-        }
-
-        static void m8()
         {
 
         }

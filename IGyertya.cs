@@ -14,8 +14,7 @@ namespace Gyertyak
         List<Szallito> Szallitok { get; set; }
         int EgesiIdo { get; set; }
         int Ar { get; set; }
+        Elado Elado { get; set; }
 
-        void ujSzallito(Szallito szallito);
-        void szallitoTorol(Szallito szallito);
     }
 }

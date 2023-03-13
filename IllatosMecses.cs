@@ -14,25 +14,21 @@ namespace Gyertyak
         private List<Szallito> _szallitok;
         private int _egesiIdo;
         private string _illat;
+        private Elado _elado;
 
-        public IllatosMecses(int ar, Alapanyag alapanyag, float suly, int egesiIdo, string illat)
+        public IllatosMecses(Elado elado, List<Szallito> szallitok)
         {
             _cikkszam = r.Next(100000, 999999);
-            _ar = ar;
-            _alapanyag = alapanyag;
-            _suly = suly;
-            _egesiIdo = egesiIdo;
-            _illat = illat;
-        }
-
-        public void ujSzallito(Szallito szallito)
-        {
-            _szallitok.Add(szallito);
-        }
-
-        public void szallitoTorol(Szallito szallito)
-        {
-            _szallitok.Remove(szallito);
+            Console.Write("Ár: ");
+            _ar = int.Parse(Console.ReadLine());
+            Console.Write("Alapanyag: ");
+            _alapanyag = (Alapanyag)Enum.Parse(typeof(Alapanyag), Console.ReadLine());
+            Console.Write("Súly: ");
+            _suly = int.Parse(Console.ReadLine());
+            Console.Write("Égési idő: ");
+            _egesiIdo = int.Parse(Console.ReadLine());
+            _szallitok = new List<Szallito>();
+            _elado = elado;
         }
 
         public int Cikkszam { get => _cikkszam; set => _cikkszam = value; }
@@ -42,7 +38,6 @@ namespace Gyertyak
         public string Illat { get => _illat; set => _illat = value; }
         public Alapanyag Alapanyag { get => _alapanyag; set => _alapanyag = value; }
         public List<Szallito> Szallitok { get => _szallitok; set => _szallitok = value; }
-
-
+        public Elado Elado { get => _elado; set => _elado = value; }
     }
 }

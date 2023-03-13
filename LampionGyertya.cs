@@ -14,26 +14,24 @@ namespace Gyertyak
         private int _egesiIdo;
         private float _atmero;
         private float _magassag;
+        private Elado _elado;
 
-        public LampionGyertya(int cikkszam, int ar, Alapanyag alapanyag, float suly, float atmero, float magassag)
+        public LampionGyertya(Elado elado, List<Szallito> szallitok)
         {
             _cikkszam = r.Next(100000, 999999);
-            _ar = ar;
-            _alapanyag = alapanyag;
-            _suly = suly;
-            _egesiIdo = 0;
-            _atmero = atmero;
-            _magassag = magassag;
-        }
-
-        public void ujSzallito(Szallito szallito)
-        {
-            _szallitok.Add(szallito);
-        }
-
-        public void szallitoTorol(Szallito szallito)
-        {
-            _szallitok.Remove(szallito);
+            Console.Write("Ár: ");
+            _ar = int.Parse(Console.ReadLine());
+            Console.Write("Alapanyag: ");
+            _alapanyag = (Alapanyag)Enum.Parse(typeof(Alapanyag), Console.ReadLine());
+            Console.Write("Súly: ");
+            _suly = int.Parse(Console.ReadLine());
+            Console.Write("Égési idő: ");
+            _egesiIdo = int.Parse(Console.ReadLine());
+            Console.Write("Átmérő: ");
+            _atmero = float.Parse(Console.ReadLine());
+            Console.Write("Magasság: ");
+            _magassag = float.Parse(Console.ReadLine());
+            _elado = elado;
         }
 
         public int Cikkszam { get => _cikkszam; set => _cikkszam = value; }
@@ -44,5 +42,6 @@ namespace Gyertyak
         public float Magassag { get => _magassag; set => _magassag = value; }
         public Alapanyag Alapanyag { get => _alapanyag; set => _alapanyag = value; }
         public List<Szallito> Szallitok { get => _szallitok; set => _szallitok = value; }
+        public Elado Elado { get => _elado; set => _elado = value; }
     }
 }

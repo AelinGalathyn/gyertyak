@@ -22,6 +22,7 @@ namespace Gyertyak
             _orszagok.Add(orszag);
         }
 
+
         public string Name { get => _name; set => _name = value; }
         public float MaxSuly { get => _maxSuly; set => _maxSuly = value; }
         public float MinSuly { get => _minSuly; set => _minSuly = value; }
